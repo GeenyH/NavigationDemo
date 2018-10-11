@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_two"
+    app:startDestination="@id/fragmentThree">
+
+    <fragment
+        android:id="@+id/fragmentThree"
+        android:name="com.example.leslie.navigationdemo.FragmentThree"
+        android:label="fragment_three"
+        tools:layout="@layout/fragment_three">
+        <action
+            android:id="@+id/action_fragmentThree_to_fragmentFour"
+            app:destination="@id/fragmentFour"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out" />
+        <action
+            android:id="@+id/action_fragmentThree_to_nav_one"
+            app:destination="@id/nav_one"
+            app:enterAnim="@anim/push_right_in"
+            app:exitAnim="@anim/push_right_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentFour"
+        android:name="com.example.leslie.navigationdemo.FragmentFour"
+        android:label="fragment_four"
+        tools:layout="@layout/fragment_four">
+        <action
+            android:id="@+id/action_fragmentFour_to_fragmentThree"
+            app:destination="@id/fragmentThree"
+            app:enterAnim="@anim/push_right_in"
+            app:exitAnim="@anim/push_right_out" />
+    </fragment>
+    <include app:graph="@navigation/nav_one" />
+</navigation>

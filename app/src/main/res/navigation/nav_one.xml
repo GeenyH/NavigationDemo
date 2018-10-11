@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_one"
+    app:startDestination="@id/fragmentOne">
+
+    <fragment
+        android:id="@+id/fragmentOne"
+        android:name="com.example.leslie.navigationdemo.FragmentOne"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one">
+        <!--从fragmentOne拖线到fragmentTwo，文件会生成下面的action，有id，destinationt和各种过渡动画-->
+        <action
+            android:id="@+id/action_fragmentOne_to_fragmentTwo"
+            app:destination="@id/fragmentTwo"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentTwo"
+        android:name="com.example.leslie.navigationdemo.FragmentTwo"
+        android:label="fragment_two"
+        tools:layout="@layout/fragment_two">
+        <action
+            android:id="@+id/action_fragmentTwo_to_fragmentOne"
+            app:destination="@id/fragmentOne"
+            app:enterAnim="@anim/push_right_in"
+            app:exitAnim="@anim/push_right_out"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_fragmentTwo_to_mainActivity2"
+            app:destination="@id/mainActivity2"
+            app:enterAnim="@anim/push_left_in"
+            app:exitAnim="@anim/push_left_out" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity2"
+        android:name="com.example.leslie.navigationdemo.MainActivity2"
+        android:label="main_activity2_activity"
+        tools:layout="@layout/activity_main2" />
+</navigation>
